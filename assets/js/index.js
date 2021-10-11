@@ -19,6 +19,13 @@ track.connect(audioContext.destination);
 
 let dataArray = new Uint8Array(analyser.frequencyBinCount);
 
+const colorInput = document.createElement('input');
+colorInput.type = 'color';
+colorInput.value = '#ffffff';
+colorInput.oninput = ({ target }) => {
+    stroke(`${target.value}19`);
+}
+
 audioInput.oninput = ({ target }) => {
     audio.setAttribute('src', URL.createObjectURL(target.files[0]));
     audioContext.resume();
@@ -38,11 +45,13 @@ function setup () {
         particles.push(new Particle());
     }
 
-    stroke(255, 255, 255, 25);
+    stroke('#ffffff19');
     background(0);
     noLoop();
 
     document.body.appendChild(audioInput);
+    document.body.appendChild(colorInput);
+
     if (innerHeight > innerWidth) {
         document.body.className = 'vertical';
     }
