@@ -3,7 +3,7 @@
 // The Coding Train: https://www.youtube.com/watch?v=BjoM9oKOAKY
 
 class Particle {
-    constructor (x=random(innerHeight), y=random(innerHeight)) {
+    constructor (x=random(SIZE), y=random(SIZE)) {
         this.position = createVector(x, y);
         this.before = this.position.copy();
         this.velocity = createVector(0, 0);

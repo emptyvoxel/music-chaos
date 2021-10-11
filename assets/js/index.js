@@ -1,6 +1,7 @@
 const SCALE = 10;
 const PARTICLES = 500;
-const CHUNKS = Math.floor(innerHeight / SCALE);
+const SIZE = Math.min(innerHeight, innerWidth);
+const CHUNKS = Math.floor(SIZE / SCALE);
 const flowField = new Array(CHUNKS * CHUNKS);
 const particles = [];
 
@@ -30,7 +31,7 @@ audio.onended = () => {
 }
 
 function setup () {
-    createCanvas(innerHeight, innerHeight);
+    createCanvas(SIZE, SIZE);
     colorMode(RGB, 255);
 
     for (let i = 0; i < PARTICLES; i++) {
@@ -42,6 +43,9 @@ function setup () {
     noLoop();
 
     document.body.appendChild(audioInput);
+    if (innerHeight > innerWidth) {
+        document.body.className = 'vertical';
+    }
 }
 
 function draw () {

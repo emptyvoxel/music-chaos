@@ -4,10 +4,14 @@
 
 html, body {
     margin: 0;
-    background-color: #000;
+    background-color: #111;
     overflow: hidden;
 }
 
 body {
     display: flex;
+}
+
+body.vertical {
+    flex-direction: column;
 }
