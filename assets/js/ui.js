@@ -20,6 +20,8 @@ track.connect(audioContext.destination);
 
 let dataArray = new Uint8Array(analyser.frequencyBinCount);
 
+audio.onended = () => noLoop();
+
 function ConfigName (name, config) {
     const container = document.createElement('div');
     const element = document.createElement('h1');
